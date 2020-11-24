@@ -29,4 +29,9 @@ public class FirstPersonPlayerInput : MonoBehaviour
     {
         _MovementInput = value.Get<Vector2>().normalized;
     }
+
+    void OnInteract()
+    {
+        
+    }
 }

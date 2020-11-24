@@ -9,11 +9,13 @@ public class ChangeCamera : MonoBehaviour
 
    private FirstPersonCamera _FirstPersonCameraScript;
    private BirdViewCamera _BirdViewCameraScript;
+   private FirstPersonPlayerInput _FirstPersonPlayerInput;
 
    private void Awake()
    {
       _FirstPersonCameraScript = GetComponent<FirstPersonCamera>();
       _BirdViewCameraScript = GetComponent<BirdViewCamera>();
+      _FirstPersonPlayerInput = GetComponent<FirstPersonPlayerInput>();
       _BirdViewCameraScript.Disable();
       _BirdViewCameraScript.enabled = false;
    }
@@ -22,5 +24,6 @@ public class ChangeCamera : MonoBehaviour
    {
       _FirstPersonCameraScript.enabled = !_FirstPersonCameraScript.enabled;
       _BirdViewCameraScript.enabled = !_BirdViewCameraScript.enabled;
+      _FirstPersonPlayerInput.enabled = !_FirstPersonPlayerInput.enabled;
    }
 }
