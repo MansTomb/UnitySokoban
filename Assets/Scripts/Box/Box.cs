@@ -14,65 +14,44 @@ public class Box : MonoBehaviour
     
     private Renderer _Renderer;
     private Outline _Outline;
+    private Rigidbody _Rigidbody;
+    private Vector3 _MoveDirection = Vector3.zero;
     private Vector3 _Destination;
 
     private bool _IsMoving = false;
+    [SerializeField] private float _MovementSpeed = 10f;
     
     void Start()
     {
         _Renderer = GetComponent<Renderer>();
         _Outline = GetComponent<Outline>();
+        _Rigidbody = GetComponent<Rigidbody>();
         _Renderer.material.color = color;
         _Outline.enabled = false;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         if (_IsMoving)
         {
-            transform.position = Vector3.MoveTowards(transform.position, _Destination, 10f * Time.deltaTime);
+            _Rigidbody.MovePosition(transform.position + (_MoveDirection * (_MovementSpeed * Time.fixedDeltaTime)));
             if (transform.position == _Destination)
                 _IsMoving = false;
         }
     }
 
-    public void Push(GameObject Player)
+    public void Push(GameObject player)
     {
         if (_IsMoving)
             return;
-        
-        Vector3 dir = Vector3.zero;
-        float minAngle = 370;
-        float angle;
-        Transform t = Player.transform;
-
-        if ((angle = Vector3.Angle(t.forward, Vector3.forward)) < minAngle)
-        {
-            dir = Vector3.forward;
-            minAngle = angle;
-        }
-        if ((angle = Vector3.Angle(t.forward, Vector3.left)) < minAngle)
-        {
-            dir = Vector3.left;
-            minAngle = angle;
-        }
-        if ((angle = Vector3.Angle(t.forward, Vector3.right)) < minAngle)
-        {
-            dir = Vector3.right;
-            minAngle = angle;
-        }
-        if (Vector3.Angle(t.forward, Vector3.back) < minAngle)
-        {
-            dir = Vector3.back;
-        }
-        _Destination = transform.position + dir;
+        CalculateMovementDirection(player);
         RaycastHit ray;
-        if (Physics.Raycast(transform.position, dir, out ray, 1f) == false)
+        if (Physics.Raycast(transform.position, _MoveDirection, out ray, 1f, 1 << 0,QueryTriggerInteraction.Ignore) == false)
         {
             _IsMoving = true;
         }
     }
-    
+
     private void OnTriggerEnter(Collider other)
     {
         _Outline.enabled = true;
@@ -83,5 +62,37 @@ public class Box : MonoBehaviour
     {
         _Outline.enabled = false;
         boxZoneExit?.Invoke();
+    }
+    
+    private void CalculateMovementDirection(GameObject player)
+    {
+        float minAngle = 370;
+        float angle;
+        Transform t = player.transform;
+
+        if ((angle = Vector3.Angle(t.forward, Vector3.forward)) < minAngle)
+        {
+            _MoveDirection = Vector3.forward;
+            minAngle = angle;
+        }
+
+        if ((angle = Vector3.Angle(t.forward, Vector3.left)) < minAngle)
+        {
+            _MoveDirection = Vector3.left;
+            minAngle = angle;
+        }
+
+        if ((angle = Vector3.Angle(t.forward, Vector3.right)) < minAngle)
+        {
+            _MoveDirection = Vector3.right;
+            minAngle = angle;
+        }
+
+        if (Vector3.Angle(t.forward, Vector3.back) < minAngle)
+        {
+            _MoveDirection = Vector3.back;
+        }
+
+        _Destination = transform.position + _MoveDirection;
     }
 }
