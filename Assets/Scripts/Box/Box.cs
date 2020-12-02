@@ -16,6 +16,7 @@ public class Box : MonoBehaviour
     private Outline _Outline;
     private Rigidbody _Rigidbody;
     private ParticleSystem _ParticleSystem;
+    private AudioSource _AudioSource;
     
     private Vector3 _MoveDirection = Vector3.zero;
     private Vector3 _Destination;
@@ -29,6 +30,7 @@ public class Box : MonoBehaviour
         _Outline = GetComponent<Outline>();
         _Rigidbody = GetComponent<Rigidbody>();
         _ParticleSystem = GetComponent<ParticleSystem>();
+        _AudioSource = GetComponent<AudioSource>();
         _Renderer.material.color = color;
         _Outline.enabled = false;
         _ParticleSystem.Stop();
@@ -57,6 +59,7 @@ public class Box : MonoBehaviour
         {
             _ParticleSystem.Play();
             transform.forward = -_MoveDirection;
+            _AudioSource.Play();
             _IsMoving = true;
         }
     }
