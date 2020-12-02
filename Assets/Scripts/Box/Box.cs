@@ -15,28 +15,35 @@ public class Box : MonoBehaviour
     private Renderer _Renderer;
     private Outline _Outline;
     private Rigidbody _Rigidbody;
+    private ParticleSystem _ParticleSystem;
+    
     private Vector3 _MoveDirection = Vector3.zero;
     private Vector3 _Destination;
 
     private bool _IsMoving = false;
-    [SerializeField] private float _MovementSpeed = 10f;
+    [SerializeField] private float _MovementSpeed = 0.1f;
     
     void Start()
     {
         _Renderer = GetComponent<Renderer>();
         _Outline = GetComponent<Outline>();
         _Rigidbody = GetComponent<Rigidbody>();
+        _ParticleSystem = GetComponent<ParticleSystem>();
         _Renderer.material.color = color;
         _Outline.enabled = false;
+        _ParticleSystem.Stop();
     }
 
     private void LateUpdate()
     {
         if (_IsMoving)
         {
-            _Rigidbody.MovePosition(transform.position + (_MoveDirection * (_MovementSpeed * Time.fixedDeltaTime)));
+            _Rigidbody.MovePosition(transform.position + _MoveDirection * Time.fixedDeltaTime);
             if (transform.position == _Destination)
+            {
                 _IsMoving = false;
+                _ParticleSystem.Stop();
+            }
         }
     }
 
@@ -48,6 +55,8 @@ public class Box : MonoBehaviour
         RaycastHit ray;
         if (Physics.Raycast(transform.position, _MoveDirection, out ray, 1f, 1 << 0,QueryTriggerInteraction.Ignore) == false)
         {
+            _ParticleSystem.Play();
+            transform.forward = -_MoveDirection;
             _IsMoving = true;
         }
     }
@@ -93,6 +102,7 @@ public class Box : MonoBehaviour
             _MoveDirection = Vector3.back;
         }
 
+        _MoveDirection *= 4;
         _Destination = transform.position + _MoveDirection;
     }
 }

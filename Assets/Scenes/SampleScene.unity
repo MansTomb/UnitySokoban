@@ -499,13 +499,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: 0.7457629, y: -0.16448903, z: 0.19982651, w: 0.6138815}
+  m_LocalPosition: {x: 5.96, y: 13.21, z: 17.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 101.08002, y: -30, z: 0}
 --- !u!1 &966853434
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,10 +945,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1884421400, guid: 0d45f60d9fb280640979498545722960, type: 3}
-      propertyPath: m_Interpolate
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7879803636473193229, guid: 0d45f60d9fb280640979498545722960, type: 3}
       propertyPath: m_Name
       value: Box
@@ -961,25 +957,13 @@ PrefabInstance:
       propertyPath: boxZoneExit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 76608102}
-    - target: {fileID: 7879803636473193232, guid: 0d45f60d9fb280640979498545722960, type: 3}
-      propertyPath: color.r
-      value: 0.9137255
-      objectReference: {fileID: 0}
-    - target: {fileID: 7879803636473193232, guid: 0d45f60d9fb280640979498545722960, type: 3}
-      propertyPath: color.g
-      value: 0.011764706
-      objectReference: {fileID: 0}
-    - target: {fileID: 7879803636473193232, guid: 0d45f60d9fb280640979498545722960, type: 3}
-      propertyPath: color.b
-      value: 0.011764706
-      objectReference: {fileID: 0}
     - target: {fileID: 7879803636473193237, guid: 0d45f60d9fb280640979498545722960, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.518
+      value: 7.86
       objectReference: {fileID: 0}
     - target: {fileID: 7879803636473193237, guid: 0d45f60d9fb280640979498545722960, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 2.03
       objectReference: {fileID: 0}
     - target: {fileID: 7879803636473193237, guid: 0d45f60d9fb280640979498545722960, type: 3}
       propertyPath: m_LocalPosition.z
