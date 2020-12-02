@@ -22,7 +22,6 @@ public class Box : MonoBehaviour
     private Vector3 _Destination;
 
     private bool _IsMoving = false;
-    [SerializeField] private float _MovementSpeed = 0.1f;
     
     void Start()
     {
@@ -105,7 +104,7 @@ public class Box : MonoBehaviour
             _MoveDirection = Vector3.back;
         }
 
-        _MoveDirection *= 4;
+        _MoveDirection *= transform.localScale.x;
         _Destination = transform.position + _MoveDirection;
     }
 }
