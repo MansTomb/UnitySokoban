@@ -8,15 +8,17 @@ using Vector3 = UnityEngine.Vector3;
 
 public class Box : MonoBehaviour
 {
+    public delegate void MovementStateChanged(bool state);
+    
     public Color color;
+
+    public event MovementStateChanged movementChanged;
     public UnityEvent boxZoneEntered;
     public UnityEvent boxZoneExit;
     
     private Renderer _Renderer;
     private Outline _Outline;
     private Rigidbody _Rigidbody;
-    private ParticleSystem _ParticleSystem;
-    private AudioSource _AudioSource;
     
     private Vector3 _MoveDirection = Vector3.zero;
     private Vector3 _Destination;
@@ -28,11 +30,8 @@ public class Box : MonoBehaviour
         _Renderer = GetComponent<Renderer>();
         _Outline = GetComponent<Outline>();
         _Rigidbody = GetComponent<Rigidbody>();
-        _ParticleSystem = GetComponent<ParticleSystem>();
-        _AudioSource = GetComponent<AudioSource>();
         _Renderer.material.color = color;
         _Outline.enabled = false;
-        _ParticleSystem.Stop();
     }
 
     private void LateUpdate()
@@ -43,7 +42,7 @@ public class Box : MonoBehaviour
             if (transform.position == _Destination)
             {
                 _IsMoving = false;
-                _ParticleSystem.Stop();
+                movementChanged?.Invoke(_IsMoving);
             }
         }
     }
@@ -56,10 +55,9 @@ public class Box : MonoBehaviour
         RaycastHit ray;
         if (Physics.Raycast(transform.position, _MoveDirection, out ray, 1f, 1 << 0,QueryTriggerInteraction.Ignore) == false)
         {
-            _ParticleSystem.Play();
             transform.forward = -_MoveDirection;
-            _AudioSource.Play();
             _IsMoving = true;
+            movementChanged?.Invoke(_IsMoving);
         }
     }
 
