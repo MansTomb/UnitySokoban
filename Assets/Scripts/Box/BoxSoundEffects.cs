@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoxSoundEffectsSystem : MonoBehaviour
+public class BoxSoundEffects : MonoBehaviour
 {
-    [SerializeField] private BoxMovementSystem _BoxMovementSystem;
+    [SerializeField] private BoxMovement boxMovement;
     [SerializeField] private AudioSource _AudioSource;
     
     private void OnEnable()
     {
-        _BoxMovementSystem.movementStateChanged += ChangeState;
+        boxMovement.movementStateChanged += ChangeState;
     }
 
     private void OnDisable()
     {
-        _BoxMovementSystem.movementStateChanged -= ChangeState;
+        boxMovement.movementStateChanged -= ChangeState;
     }
 
     private void ChangeState(bool state)

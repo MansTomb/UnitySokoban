@@ -9,7 +9,7 @@ public class ChangeCamera : MonoBehaviour
    
    [SerializeField] private FirstPersonCamera firstPersonCameraScript;
    [SerializeField] private BirdViewCamera birdViewCameraScript;
-   [SerializeField] private PlayerMovementSystem playerMovementSystem;
+   [SerializeField] private PlayerMovement playerMovement;
 
    private void Awake()
    {
@@ -21,6 +21,6 @@ public class ChangeCamera : MonoBehaviour
    {
       firstPersonCameraScript.enabled = !firstPersonCameraScript.enabled;
       birdViewCameraScript.enabled = !birdViewCameraScript.enabled;
-      playerMovementSystem.enabled = !playerMovementSystem.enabled;
+      playerMovement.enabled = !playerMovement.enabled;
    }
 }

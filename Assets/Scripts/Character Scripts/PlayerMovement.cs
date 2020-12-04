@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
-public class PlayerMovementSystem : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     
     public delegate void MovementStateChanged(bool state);

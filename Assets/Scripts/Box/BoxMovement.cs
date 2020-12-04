@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoxMovementSystem : MonoBehaviour
+public class BoxMovement : MonoBehaviour
 {
     public delegate void MovementStateChanged(bool state);
 

@@ -5137,7 +5137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e16d2b0a3c57d264d890f9640aeb9f0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _BoxMovementSystem: {fileID: 5766715028643973193}
+  boxMovement: {fileID: 5766715028643973193}
   _ParticleSystem: {fileID: 1151010384}
 --- !u!114 &3558276295639699863
 MonoBehaviour:
@@ -5151,7 +5151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddbb4359f7ac2cf47b1fd5997673a234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _BoxMovementSystem: {fileID: 5766715028643973193}
+  boxMovement: {fileID: 5766715028643973193}
   _AudioSource: {fileID: 1044029389189831430}
 --- !u!114 &5766715028643973193
 MonoBehaviour:

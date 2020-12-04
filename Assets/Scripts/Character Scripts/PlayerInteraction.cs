@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerInteractionSystem : MonoBehaviour
+public class PlayerInteraction : MonoBehaviour
 {
     public UnityEvent interactedBox;
     public Camera firstPersonCamera;
