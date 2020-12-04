@@ -16,6 +16,8 @@ public class PlayerMovementSystem : MonoBehaviour
 
     private bool _IsMoving = false;
 
+    public bool isMoving => _IsMoving;
+
     void Update()
     {
         if (_IsMoving == false)
@@ -28,7 +30,10 @@ public class PlayerMovementSystem : MonoBehaviour
     private void OnMove(InputValue value)
     {
         _MovementInput = value.Get<Vector2>().normalized;
-        _IsMoving = _MovementInput != Vector3.zero;
-        movementStateChanged?.Invoke(_IsMoving);
+        if (_IsMoving != (_MovementInput != Vector3.zero))
+        {
+            _IsMoving = _MovementInput != Vector3.zero;
+            movementStateChanged?.Invoke(_IsMoving);
+        }
     }
 }
