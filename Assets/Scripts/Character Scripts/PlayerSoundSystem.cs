@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerSoundSystem : MonoBehaviour
@@ -11,36 +9,21 @@ public class PlayerSoundSystem : MonoBehaviour
     private Coroutine _Footsteps;
     private void OnEnable()
     {
-        playerMovementSystem.movementStateChanged += PlayFootsteps;
+        _Footsteps = StartCoroutine(PlayFootstepsSound());
     }
 
     private void OnDisable()
     {
-        playerMovementSystem.movementStateChanged -= PlayFootsteps;
-        if (_Footsteps != null)
-            StopCoroutine(_Footsteps);
-    }
-
-    private void PlayFootsteps(bool state)
-    {
-        if (state)
-        {
-            if (_Footsteps != null)
-                StopCoroutine(_Footsteps);
-            _Footsteps = StartCoroutine(PlayFootstepsSound());
-        }
-        else
-        {
-            StopCoroutine(_Footsteps);
-        }
+        StopCoroutine(_Footsteps);
     }
 
     IEnumerator PlayFootstepsSound()
     {
         while (true)
         {
-            audioSource.Play();
+            yield return new WaitWhile(() => !playerMovementSystem.isMoving);
             yield return new WaitForSeconds(0.75f);
+            audioSource.Play();
         }
     }
 }
