@@ -7,13 +7,13 @@ public class BoxParticleSystem : MonoBehaviour
     
     private void OnEnable()
     {
-        _Box.movementChanged += ChangeState;
+        _Box.movementStateChanged += ChangeState;
         _ParticleSystem.Stop();
     }
 
     private void OnDisable()
     {
-        _Box.movementChanged -= ChangeState;
+        _Box.movementStateChanged -= ChangeState;
     }
 
     private void ChangeState(bool state)

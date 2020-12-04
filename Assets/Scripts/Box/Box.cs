@@ -12,7 +12,7 @@ public class Box : MonoBehaviour
     
     public Color color;
 
-    public event MovementStateChanged movementChanged;
+    public event MovementStateChanged movementStateChanged;
     public UnityEvent boxZoneEntered;
     public UnityEvent boxZoneExit;
     
@@ -42,7 +42,7 @@ public class Box : MonoBehaviour
             if (transform.position == _Destination)
             {
                 _IsMoving = false;
-                movementChanged?.Invoke(_IsMoving);
+                movementStateChanged?.Invoke(_IsMoving);
             }
         }
     }
@@ -57,7 +57,7 @@ public class Box : MonoBehaviour
         {
             transform.forward = -_MoveDirection;
             _IsMoving = true;
-            movementChanged?.Invoke(_IsMoving);
+            movementStateChanged?.Invoke(_IsMoving);
         }
     }
 

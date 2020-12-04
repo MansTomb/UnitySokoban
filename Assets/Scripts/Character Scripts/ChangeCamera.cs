@@ -7,23 +7,20 @@ public class ChangeCamera : MonoBehaviour
    public GameObject firstPersonCamera;
    public GameObject birdViewCamera;
 
-   private FirstPersonCamera _FirstPersonCameraScript;
-   private BirdViewCamera _BirdViewCameraScript;
-   private FirstPersonPlayerInput _FirstPersonPlayerInput;
+   [SerializeField] private FirstPersonCamera firstPersonCameraScript;
+   [SerializeField] private BirdViewCamera birdViewCameraScript;
+   [SerializeField] private PlayerMovementSystem playerMovementSystem;
 
    private void Awake()
    {
-      _FirstPersonCameraScript = GetComponent<FirstPersonCamera>();
-      _BirdViewCameraScript = GetComponent<BirdViewCamera>();
-      _FirstPersonPlayerInput = GetComponent<FirstPersonPlayerInput>();
-      _BirdViewCameraScript.Disable();
-      _BirdViewCameraScript.enabled = false;
+      birdViewCameraScript.Disable();
+      birdViewCameraScript.enabled = false;
    }
 
    private void OnChangeCamera()
    {
-      _FirstPersonCameraScript.enabled = !_FirstPersonCameraScript.enabled;
-      _BirdViewCameraScript.enabled = !_BirdViewCameraScript.enabled;
-      _FirstPersonPlayerInput.enabled = !_FirstPersonPlayerInput.enabled;
+      firstPersonCameraScript.enabled = !firstPersonCameraScript.enabled;
+      birdViewCameraScript.enabled = !birdViewCameraScript.enabled;
+      playerMovementSystem.enabled = !playerMovementSystem.enabled;
    }
 }

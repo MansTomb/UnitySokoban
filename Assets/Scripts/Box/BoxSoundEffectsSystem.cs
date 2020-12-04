@@ -9,12 +9,12 @@ public class BoxSoundEffectsSystem : MonoBehaviour
     
     private void OnEnable()
     {
-        _Box.movementChanged += ChangeState;
+        _Box.movementStateChanged += ChangeState;
     }
 
     private void OnDisable()
     {
-        _Box.movementChanged -= ChangeState;
+        _Box.movementStateChanged -= ChangeState;
     }
 
     private void ChangeState(bool state)
