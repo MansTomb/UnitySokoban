@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteAlways]
 public class GridPresenter : MonoBehaviour
 {
     private Grid _Grid;
     void Start()
     {
-        _Grid = new Grid(10, 10, 10);
+        _Grid = new Grid(10, 10, 4);
 
         for (int i = 0; i < _Grid.grid.GetLength(0); i++)
         {
