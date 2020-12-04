@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ChangeCamera : MonoBehaviour
 {
-   public GameObject firstPersonCamera;
-   public GameObject birdViewCamera;
-
+   [SerializeField] private GameObject firstPersonCamera;
+   [SerializeField] private GameObject birdViewCamera;
+   
    [SerializeField] private FirstPersonCamera firstPersonCameraScript;
    [SerializeField] private BirdViewCamera birdViewCameraScript;
    [SerializeField] private PlayerMovementSystem playerMovementSystem;
