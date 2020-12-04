@@ -1,64 +1,20 @@
-using System;
-using System.Numerics;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.EventSystems;
-using Vector3 = UnityEngine.Vector3;
 
 public class Box : MonoBehaviour
-{
-    public delegate void MovementStateChanged(bool state);
-    
+{    
     public Color color;
 
-    public event MovementStateChanged movementStateChanged;
     public UnityEvent boxZoneEntered;
     public UnityEvent boxZoneExit;
     
-    private Renderer _Renderer;
-    private Outline _Outline;
-    private Rigidbody _Rigidbody;
-    
-    private Vector3 _MoveDirection = Vector3.zero;
-    private Vector3 _Destination;
+    [SerializeField] private Renderer _Renderer;
+    [SerializeField] private Outline _Outline;
 
-    private bool _IsMoving = false;
-    
     void Start()
     {
-        _Renderer = GetComponent<Renderer>();
-        _Outline = GetComponent<Outline>();
-        _Rigidbody = GetComponent<Rigidbody>();
         _Renderer.material.color = color;
         _Outline.enabled = false;
-    }
-
-    private void LateUpdate()
-    {
-        if (_IsMoving)
-        {
-            _Rigidbody.MovePosition(transform.position + _MoveDirection * Time.fixedDeltaTime);
-            if (transform.position == _Destination)
-            {
-                _IsMoving = false;
-                movementStateChanged?.Invoke(_IsMoving);
-            }
-        }
-    }
-
-    public void Push(GameObject player)
-    {
-        if (_IsMoving)
-            return;
-        CalculateMovementDirection(player);
-        RaycastHit ray;
-        if (Physics.Raycast(transform.position, _MoveDirection, out ray, 1f, 1 << 0,QueryTriggerInteraction.Ignore) == false)
-        {
-            transform.forward = -_MoveDirection;
-            _IsMoving = true;
-            movementStateChanged?.Invoke(_IsMoving);
-        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -71,38 +27,5 @@ public class Box : MonoBehaviour
     {
         _Outline.enabled = false;
         boxZoneExit?.Invoke();
-    }
-    
-    private void CalculateMovementDirection(GameObject player)
-    {
-        float minAngle = 370;
-        float angle;
-        Transform t = player.transform;
-
-        if ((angle = Vector3.Angle(t.forward, Vector3.forward)) < minAngle)
-        {
-            _MoveDirection = Vector3.forward;
-            minAngle = angle;
-        }
-
-        if ((angle = Vector3.Angle(t.forward, Vector3.left)) < minAngle)
-        {
-            _MoveDirection = Vector3.left;
-            minAngle = angle;
-        }
-
-        if ((angle = Vector3.Angle(t.forward, Vector3.right)) < minAngle)
-        {
-            _MoveDirection = Vector3.right;
-            minAngle = angle;
-        }
-
-        if (Vector3.Angle(t.forward, Vector3.back) < minAngle)
-        {
-            _MoveDirection = Vector3.back;
-        }
-
-        _MoveDirection *= transform.localScale.x;
-        _Destination = transform.position + _MoveDirection;
     }
 }

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 7879803636473193235}
   - component: {fileID: 6562152113034658048}
   - component: {fileID: 3558276295639699863}
+  - component: {fileID: 5766715028643973193}
   - component: {fileID: 7879803636473193234}
   m_Layer: 6
   m_Name: Box
@@ -5103,6 +5104,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _Renderer: {fileID: 7879803636473193239}
+  _Outline: {fileID: 7879803636473193235}
 --- !u!114 &7879803636473193235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5134,7 +5137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e16d2b0a3c57d264d890f9640aeb9f0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Box: {fileID: 7879803636473193232}
+  _BoxMovementSystem: {fileID: 5766715028643973193}
   _ParticleSystem: {fileID: 1151010384}
 --- !u!114 &3558276295639699863
 MonoBehaviour:
@@ -5148,8 +5151,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddbb4359f7ac2cf47b1fd5997673a234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Box: {fileID: 7879803636473193232}
+  _BoxMovementSystem: {fileID: 5766715028643973193}
   _AudioSource: {fileID: 1044029389189831430}
+--- !u!114 &5766715028643973193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7879803636473193229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb5ab18b28d3de41a62bde491c9c465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Rigidbody: {fileID: 1884421400}
+  _Interactable: {fileID: 7879803636473193234}
 --- !u!114 &7879803636473193234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5162,18 +5179,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe2376f610f74142aa5f13db43258ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Interaction:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7879803636473193232}
-        m_TargetAssemblyTypeName: Box, Assembly-CSharp
-        m_MethodName: Push
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2

@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class BoxSoundEffectsSystem : MonoBehaviour
 {
-    [SerializeField] private Box _Box;
+    [SerializeField] private BoxMovementSystem _BoxMovementSystem;
     [SerializeField] private AudioSource _AudioSource;
     
     private void OnEnable()
     {
-        _Box.movementStateChanged += ChangeState;
+        _BoxMovementSystem.movementStateChanged += ChangeState;
     }
 
     private void OnDisable()
     {
-        _Box.movementStateChanged -= ChangeState;
+        _BoxMovementSystem.movementStateChanged -= ChangeState;
     }
 
     private void ChangeState(bool state)
