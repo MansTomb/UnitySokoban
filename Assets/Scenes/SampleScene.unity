@@ -710,7 +710,7 @@ GameObject:
   - component: {fileID: 1123675451}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -898,6 +898,18 @@ PrefabInstance:
       propertyPath: movementSpeed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1131352236026218049, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
+      propertyPath: jumpHeight
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239293716600796731, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239293716600796731, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4169603291181925942, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
       propertyPath: m_Name
       value: Player Environment
@@ -908,7 +920,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4169603291181925943, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.97
+      value: 1.046
       objectReference: {fileID: 0}
     - target: {fileID: 4169603291181925943, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -986,7 +998,17 @@ PrefabInstance:
       propertyPath: movementSpeed
       value: 4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8853195490989785920, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
+      propertyPath: m_Center.y
+      value: -1.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853195490989785920, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4169603292953992161, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
+    - {fileID: 4169603291215599654, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
 --- !u!1 &1732215328
 GameObject:

@@ -117,7 +117,6 @@ GameObject:
   - component: {fileID: 4169603291215599653}
   - component: {fileID: 4169603291215599656}
   - component: {fileID: 4169603291215599655}
-  - component: {fileID: 4169603291215599654}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -189,20 +188,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &4169603291215599654
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4169603291215599652}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4169603291686602687
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,7 +310,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4169603292487632193}
   m_LocalRotation: {x: 0, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5}
   m_LocalScale: {x: 2.2078469, y: 8.995989, z: -2.9368575}
   m_Children: []
   m_Father: {fileID: 4169603291686602656}
@@ -392,8 +377,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4169603292953992160}
   - component: {fileID: 4169603292953992190}
-  - component: {fileID: 4169603292953992161}
   - component: {fileID: 3215489032881313141}
+  - component: {fileID: 3239293716600796731}
   - component: {fileID: 1131352236026218049}
   - component: {fileID: 3600447481403890432}
   - component: {fileID: 9120703398200257814}
@@ -452,24 +437,6 @@ MonoBehaviour:
   m_DefaultActionMap: PlayerControl
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 4169603292487632195}
---- !u!143 &4169603292953992161
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4169603292953992189}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &3215489032881313141
 AudioSource:
   m_ObjectHideFlags: 0
@@ -566,6 +533,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!143 &3239293716600796731
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4169603292953992189}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1131352236026218049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -578,8 +563,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc2e89f4365473a4b82cb421323b7a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Controller: {fileID: 4169603292953992161}
-  movementSpeed: 3
+  _Controller: {fileID: 3239293716600796731}
+  movementSpeed: 5
+  jumpHeight: 5
+  gravityValue: -9.81
 --- !u!114 &3600447481403890432
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,11 +12,10 @@ public class PlayerMovement : MonoBehaviour
     
     [SerializeField] private CharacterController _Controller;
     [SerializeField] private float movementSpeed = 3;
-    
+
     private Vector3 _MovementInput;
 
     private bool _IsMoving = false;
-
     public bool isMoving => _IsMoving;
 
     void Update()
