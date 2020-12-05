@@ -34,6 +34,7 @@ public class BoxMovement : MonoBehaviour
             _Rigidbody.MovePosition(transform.position + _MoveDirection * Time.fixedDeltaTime);
             if (transform.position == _Destination)
             {
+                RoundPosition();
                 _IsMoving = false;
                 movementStateChanged?.Invoke(_IsMoving);
             }
@@ -46,7 +47,7 @@ public class BoxMovement : MonoBehaviour
             return;
         CalculateMovementDirection(player);
         RaycastHit ray;
-        if (Physics.Raycast(transform.position, _MoveDirection, out ray, 1f, 1 << 0,QueryTriggerInteraction.Ignore) == false)
+        if (Physics.Raycast(transform.position, _MoveDirection, out ray, transform.localScale.x, 1 << 0,QueryTriggerInteraction.Ignore) == false)
         {
             transform.forward = -_MoveDirection;
             _IsMoving = true;
@@ -85,5 +86,14 @@ public class BoxMovement : MonoBehaviour
 
         _MoveDirection *= transform.localScale.x;
         _Destination = transform.position + _MoveDirection;
+    }
+    
+    private void RoundPosition()
+    {
+        Vector3 tmp = transform.position;
+        tmp.x = Mathf.Round(tmp.x);
+        tmp.y = Mathf.Round(tmp.y);
+        tmp.z = Mathf.Round(tmp.z);
+        transform.position = tmp;
     }
 }

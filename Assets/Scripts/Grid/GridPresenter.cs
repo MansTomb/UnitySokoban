@@ -6,6 +6,7 @@ using UnityEngine;
 public class GridPresenter : MonoBehaviour
 {
     private Grid _Grid;
+
     void Start()
     {
         _Grid = new Grid(10, 10, 4);
@@ -14,11 +15,11 @@ public class GridPresenter : MonoBehaviour
         {
             for (int j = 0; j < _Grid.grid.GetLength(1); j++)
             {
-                Debug.DrawLine(_Grid.GetWorldPosition(i, j), _Grid.GetWorldPosition(i, j + 1), Color.white, 100f);
-                Debug.DrawLine(_Grid.GetWorldPosition(i, j), _Grid.GetWorldPosition(i + 1, j), Color.white, 100f);
+                Debug.DrawLine(_Grid.GetWorldPosition(i, j), _Grid.GetWorldPosition(i, j + 1), Color.black, 100f);
+                Debug.DrawLine(_Grid.GetWorldPosition(i, j), _Grid.GetWorldPosition(i + 1, j), Color.black, 100f);
             }
-            Debug.DrawLine(_Grid.GetWorldPosition(0, _Grid.height), _Grid.GetWorldPosition(_Grid.width, _Grid.height), Color.white, 100f);
-            Debug.DrawLine(_Grid.GetWorldPosition(_Grid.width, 0), _Grid.GetWorldPosition(_Grid.width, _Grid.height), Color.white, 100f);
+            Debug.DrawLine(_Grid.GetWorldPosition(0, _Grid.height), _Grid.GetWorldPosition(_Grid.width, _Grid.height), Color.black, 100f);
+            Debug.DrawLine(_Grid.GetWorldPosition(_Grid.width, 0), _Grid.GetWorldPosition(_Grid.width, _Grid.height), Color.black, 100f);
         }
     }
 }
