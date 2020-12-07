@@ -894,22 +894,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1131352236026218049, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
-      propertyPath: movementSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1131352236026218049, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
-      propertyPath: jumpHeight
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3239293716600796731, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
-      propertyPath: m_Radius
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3239293716600796731, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
-      propertyPath: m_Height
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4169603291181925942, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
       propertyPath: m_Name
       value: Player Environment
@@ -958,57 +942,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4169603292487632196, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4169603292953992191, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
-      propertyPath: interactedBox.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4169603292953992191, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
-      propertyPath: firstPersonCamera
-      value: 
-      objectReference: {fileID: 2113679388}
-    - target: {fileID: 4169603292953992191, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
-      propertyPath: interactedBox.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4169603292953992191, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
-      propertyPath: interactedBox.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4169603292953992191, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
-      propertyPath: interactedBox.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 144353273}
-    - target: {fileID: 4169603292953992191, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
-      propertyPath: interactedBox.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Hints, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4169603292953992191, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
-      propertyPath: interactedBox.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DeletePushHint
-      objectReference: {fileID: 0}
-    - target: {fileID: 4169603292953992191, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
-      propertyPath: interactedBox.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 4169603292953992191, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
-      propertyPath: movementSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8853195490989785920, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
-      propertyPath: m_Center.y
-      value: -1.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 8853195490989785920, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4169603292953992161, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
-    - {fileID: 4169603291215599654, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
 --- !u!1 &1732215328
 GameObject:
