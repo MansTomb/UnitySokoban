@@ -9,7 +9,7 @@ public class GridPresenter : MonoBehaviour
 
     void Start()
     {
-        _Grid = new Grid(10, 10, 4);
+        _Grid = new Grid(5, 5, 4);
 
         for (int i = 0; i < _Grid.grid.GetLength(0); i++)
         {

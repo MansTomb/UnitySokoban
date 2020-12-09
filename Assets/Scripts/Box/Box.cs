@@ -19,13 +19,19 @@ public class Box : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        _Outline.enabled = true;
-        boxZoneEntered?.Invoke();
+        if (other.CompareTag("Player")) 
+        {
+            _Outline.enabled = true;
+            boxZoneEntered?.Invoke();
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        _Outline.enabled = false;
-        boxZoneExit?.Invoke();
+        if (other.CompareTag("Player")) 
+        {
+            _Outline.enabled = false;
+            boxZoneExit?.Invoke();
+        }
     }
 }
