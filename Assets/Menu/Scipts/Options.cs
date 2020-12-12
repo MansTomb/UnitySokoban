@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -14,17 +11,17 @@ public class Options : MonoBehaviour
 
     private void Awake()
     {
-        var MasterVolume = PlayerPrefs.GetFloat("Master Volume", master.maxValue);
-        var MusicVolume = PlayerPrefs.GetFloat("Music Volume", music.maxValue);
-        var EffectsVolume = PlayerPrefs.GetFloat("Effects Volume", effects.maxValue);
+        var masterVolume = PlayerPrefs.GetFloat("Master Volume", master.maxValue);
+        var musicVolume = PlayerPrefs.GetFloat("Music Volume", music.maxValue);
+        var effectsVolume = PlayerPrefs.GetFloat("Effects Volume", effects.maxValue);
         
-        mixer.SetFloat("Master", MasterVolume);
-        mixer.SetFloat("Music", MusicVolume);
-        mixer.SetFloat("Effects", EffectsVolume);
+        mixer.SetFloat("Master", masterVolume);
+        mixer.SetFloat("Music", musicVolume);
+        mixer.SetFloat("Effects", effectsVolume);
         
-        master.SetValueWithoutNotify(MasterVolume);
-        music.SetValueWithoutNotify(MusicVolume);
-        effects.SetValueWithoutNotify(EffectsVolume);
+        master.SetValueWithoutNotify(masterVolume);
+        music.SetValueWithoutNotify(musicVolume);
+        effects.SetValueWithoutNotify(effectsVolume);
     }
 
     public void OnMasterChanged()
