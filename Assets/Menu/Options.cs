@@ -14,29 +14,37 @@ public class Options : MonoBehaviour
 
     private void Awake()
     {
-        float value;
-        mixer.GetFloat("Master", out value);
-        master.SetValueWithoutNotify(value);
+        var MasterVolume = PlayerPrefs.GetFloat("Master Volume", master.maxValue);
+        var MusicVolume = PlayerPrefs.GetFloat("Music Volume", music.maxValue);
+        var EffectsVolume = PlayerPrefs.GetFloat("Effects Volume", effects.maxValue);
         
-        mixer.GetFloat("Music", out value);
-        music.SetValueWithoutNotify(value);
+        mixer.SetFloat("Master", MasterVolume);
+        mixer.SetFloat("Music", MusicVolume);
+        mixer.SetFloat("Effects", EffectsVolume);
         
-        mixer.GetFloat("Effects", out value);
-        effects.SetValueWithoutNotify(value);
+        master.SetValueWithoutNotify(MasterVolume);
+        music.SetValueWithoutNotify(MusicVolume);
+        effects.SetValueWithoutNotify(EffectsVolume);
     }
 
     public void OnMasterChanged()
     {
         mixer.SetFloat("Master", master.value);
+        PlayerPrefs.SetFloat("Master Volume", master.value);
+        PlayerPrefs.Save();
     }
     
     public void OnMusicChanged()
     {
         mixer.SetFloat("Music", music.value);
+        PlayerPrefs.SetFloat("Music Volume", music.value);
+        PlayerPrefs.Save();
     }
     
     public void OnEffectsChanged()
     {
         mixer.SetFloat("Effects", effects.value);   
+        PlayerPrefs.SetFloat("Effects Volume", effects.value);
+        PlayerPrefs.Save();
     }
 }
