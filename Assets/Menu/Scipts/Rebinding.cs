@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,50 +7,79 @@ public class Rebinding : MonoBehaviour
     [Header("References")]
     [SerializeField] private InputActionReference actionReference = null;
     [SerializeField] private TMP_Text actionButtonText = null;
+    [SerializeField] private TMP_Text actionHintText = null;
     [SerializeField] private string bindName = null;
     
-    private InputActionRebindingExtensions.RebindingOperation rebindingOperation;
+    private InputActionRebindingExtensions.RebindingOperation _RebindingOperation;
+
+    private string _NameBeforeBind = null;
 
     private void Awake()
     {
-        SetTextToButtonName();
+        string bind = PlayerPrefs.GetString(actionHintText.text);
+
+        if (bind.Length != 0)
+        {
+            actionReference.action.ApplyBindingOverride(bind);   
+        }
+        
+        InitializeButtonText();
     }
 
     public void StartRebinding()
     {
-        int bindingIndex = 0;
+        _NameBeforeBind = actionButtonText.text;
         actionButtonText.text = "...";
         
         actionReference.action.Disable();
 
-        if (bindName.Length != 0)
-        {
-            bindingIndex = actionReference.action.bindings.IndexOf(x => x.isPartOfComposite && x.name == bindName);
-        }
-
-        rebindingOperation = actionReference.action.PerformInteractiveRebinding()
+        _RebindingOperation = actionReference.action.PerformInteractiveRebinding()
             .WithControlsExcluding("Mouse")
             .OnMatchWaitForAnother(0.1f)
+            .WithCancelingThrough("<Keyboard>/escape")
             .OnComplete(operation => RebindCompleted())
-            .OnCancel(operation => SetTextToButtonName());
+            .OnCancel(operation => RebindCancel());
 
         if (bindName.Length != 0)
         {
-            rebindingOperation.WithTargetBinding(bindingIndex);
-            rebindingOperation.WithExpectedControlType("Button");
+            _RebindingOperation.WithTargetBinding(GetBindindIndex());
+            _RebindingOperation.WithExpectedControlType("Button");
         }
 
-        rebindingOperation.Start();
+        _RebindingOperation.Start();
     }
 
     private void RebindCompleted()
     {
-        SetTextToButtonName();
-        rebindingOperation.Dispose();
-        rebindingOperation = null;
+        int controlBindingIndex = GetBindindIndex();
+        
+        PlayerPrefs.SetString(actionHintText.text, actionReference.action.bindings[controlBindingIndex].overridePath);
+
+        actionButtonText.text = InputControlPath.ToHumanReadableString(
+            actionReference.action.bindings[controlBindingIndex].effectivePath,
+            InputControlPath.HumanReadableStringOptions.OmitDevice);
+        
+        _RebindingOperation.Dispose();
+        _RebindingOperation = null;
     }
 
-    private void SetTextToButtonName()
+    private void RebindCancel()
+    {
+        actionButtonText.text = _NameBeforeBind;
+        actionReference.action.Enable();
+        
+        _RebindingOperation.Dispose();
+        _RebindingOperation = null;
+    }
+    
+    private void InitializeButtonText()
+    {
+        actionButtonText.text = InputControlPath.ToHumanReadableString(
+            actionReference.action.bindings[GetBindindIndex()].effectivePath,
+            InputControlPath.HumanReadableStringOptions.OmitDevice);
+    }
+
+    private int GetBindindIndex()
     {
         int controlBindingIndex = 0;
 
@@ -61,11 +87,6 @@ public class Rebinding : MonoBehaviour
             controlBindingIndex = actionReference.action.GetBindingIndexForControl(actionReference.action.controls[0]);
         else
             controlBindingIndex = actionReference.action.bindings.IndexOf(x => x.isPartOfComposite && x.name == bindName);
-
-        actionButtonText.text = InputControlPath.ToHumanReadableString(
-            actionReference.action.bindings[controlBindingIndex].effectivePath,
-            InputControlPath.HumanReadableStringOptions.OmitDevice);
-        
-        actionReference.action.Enable();
+        return controlBindingIndex;
     }
 }

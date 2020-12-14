@@ -28,20 +28,17 @@ public class Options : MonoBehaviour
     {
         mixer.SetFloat("Master", master.value);
         PlayerPrefs.SetFloat("Master Volume", master.value);
-        PlayerPrefs.Save();
     }
     
     public void OnMusicChanged()
     {
         mixer.SetFloat("Music", music.value);
         PlayerPrefs.SetFloat("Music Volume", music.value);
-        PlayerPrefs.Save();
     }
     
     public void OnEffectsChanged()
     {
         mixer.SetFloat("Effects", effects.value);   
         PlayerPrefs.SetFloat("Effects Volume", effects.value);
-        PlayerPrefs.Save();
     }
 }

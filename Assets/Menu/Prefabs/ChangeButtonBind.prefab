@@ -319,6 +319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionReference: {fileID: 0}
   actionButtonText: {fileID: 6522775998508519483}
+  actionHintText: {fileID: 6522775999259030000}
   bindName: 
 --- !u!1 &6522775999748072677
 GameObject:
