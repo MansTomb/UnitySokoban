@@ -6,8 +6,8 @@ using UnityEngine.Serialization;
 public class FirstPersonCamera : MonoBehaviour
 {
     [SerializeField] private Camera playerCamera;
-    
-    [SerializeField] private float sensivity = 10f;
+
+    [SerializeField] private float sensivity = PlayerPrefs.GetFloat("First Person Sensivity");
 
     private Vector2 _MouseInput = Vector2.zero;
     private float _MouseX;
