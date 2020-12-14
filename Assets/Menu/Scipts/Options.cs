@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -11,13 +12,14 @@ public class Options : MonoBehaviour
     [SerializeField] private Slider birdCameraSensivity;
     [SerializeField] private Slider fpsCameraSensivity;
 
-    private void Awake()
+    private IEnumerator Start()
     {
-        var masterVolume = PlayerPrefs.GetFloat("Master Volume", master.maxValue);
-        var musicVolume = PlayerPrefs.GetFloat("Music Volume", music.maxValue);
-        var effectsVolume = PlayerPrefs.GetFloat("Effects Volume", effects.maxValue);
-        var fpsSensivty = PlayerPrefs.GetFloat("First Person Sensivity", fpsCameraSensivity.maxValue / 2);
-        var birdSensivity = PlayerPrefs.GetFloat("Bird View Sensivity", birdCameraSensivity.maxValue / 2);
+        yield return new WaitForSeconds(0.001f);
+        var masterVolume = PlayerPrefs.GetFloat("Master Volume", master.value);
+        var musicVolume = PlayerPrefs.GetFloat("Music Volume", music.value);
+        var effectsVolume = PlayerPrefs.GetFloat("Effects Volume", effects.value);
+        var fpsSensivty = PlayerPrefs.GetFloat("First Person Sensivity", fpsCameraSensivity.value);
+        var birdSensivity = PlayerPrefs.GetFloat("Bird View Sensivity", birdCameraSensivity.value);
         
         mixer.SetFloat("Master", masterVolume);
         mixer.SetFloat("Music", musicVolume);
@@ -28,6 +30,8 @@ public class Options : MonoBehaviour
         effects.SetValueWithoutNotify(effectsVolume);
         birdCameraSensivity.SetValueWithoutNotify(birdSensivity);
         fpsCameraSensivity.SetValueWithoutNotify(fpsSensivty);
+        
+        gameObject.SetActive(false);
     }
 
     public void OnMasterChanged()

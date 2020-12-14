@@ -7,10 +7,14 @@ public class FirstPersonCamera : MonoBehaviour
 {
     [SerializeField] private Camera playerCamera;
 
-    [SerializeField] private float sensivity = PlayerPrefs.GetFloat("First Person Sensivity");
-
+    private float _Sensivity = 5;
     private Vector2 _MouseInput = Vector2.zero;
     private float _MouseX;
+
+    private void Start()
+    {
+        _Sensivity = PlayerPrefs.GetFloat("First Person Sensivity", 5);
+    }
 
     void Update()
     {
@@ -37,6 +41,6 @@ public class FirstPersonCamera : MonoBehaviour
 
     private void OnCamera(InputValue value)
     {
-        _MouseInput = value.Get<Vector2>() * sensivity * Time.deltaTime;
+        _MouseInput = value.Get<Vector2>() * _Sensivity * Time.deltaTime;
     }
 }

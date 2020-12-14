@@ -5,7 +5,13 @@ using UnityEngine.InputSystem;
 public class BirdViewCamera : MonoBehaviour
 {
     [SerializeField] private Camera birdCamera;
-    [SerializeField] private float sensivity = PlayerPrefs.GetFloat("Bird View Sensivity", 1);
+    
+    private float _Sensivity = 1;
+
+    private void Start()
+    {
+        _Sensivity = PlayerPrefs.GetFloat("Bird View Sensivity", 0.06f) / 100;
+    }
 
     void Update()
     {
@@ -35,19 +41,19 @@ public class BirdViewCamera : MonoBehaviour
         Vector3 newPos = birdCamera.transform.position;
         if (Mouse.current.position.y.ReadValue() >= Screen.height - 10f)
         {
-            newPos.z += sensivity;
+            newPos.z += _Sensivity;
         }
         if (Mouse.current.position.y.ReadValue() <= 10f)
         {
-            newPos.z -= sensivity;
+            newPos.z -= _Sensivity;
         }
         if (Mouse.current.position.x.ReadValue() >= Screen.width - 10f)
         {
-            newPos.x += sensivity;
+            newPos.x += _Sensivity;
         }
         if (Mouse.current.position.x.ReadValue() <= 10f)
         {
-            newPos.x -= sensivity;
+            newPos.x -= _Sensivity;
         }
         birdCamera.transform.position = newPos;
     }

@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     public event MovementStateChanged movementStateChanged;
     
-    [SerializeField] private CharacterController _Controller;
+    [SerializeField] private CharacterController controller;
     [SerializeField] private float movementSpeed = 3;
 
     private Vector3 _MovementInput;
@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         
         Vector3 move = transform.right * _MovementInput.x + transform.forward * _MovementInput.y;
-        _Controller.Move(move * (movementSpeed * Time.deltaTime));
+        controller.Move(move * (movementSpeed * Time.deltaTime));
     }
 
     private void OnMove(InputValue value)

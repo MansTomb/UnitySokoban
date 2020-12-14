@@ -563,10 +563,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc2e89f4365473a4b82cb421323b7a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Controller: {fileID: 3239293716600796731}
+  controller: {fileID: 3239293716600796731}
   movementSpeed: 5
-  jumpHeight: 5
-  gravityValue: -9.81
 --- !u!114 &3600447481403890432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -610,7 +608,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 4169603292487632195}
-  sensivity: 10
 --- !u!114 &4169603292953992163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,7 +621,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   birdCamera: {fileID: 4169603290982873209}
-  sensivity: 0.02
 --- !u!114 &4169603292953992164
 MonoBehaviour:
   m_ObjectHideFlags: 0

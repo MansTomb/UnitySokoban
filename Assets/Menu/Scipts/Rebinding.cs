@@ -14,13 +14,13 @@ public class Rebinding : MonoBehaviour
 
     private string _NameBeforeBind = null;
 
-    private void Awake()
+    private void Start()
     {
         string bind = PlayerPrefs.GetString(actionHintText.text);
 
         if (bind.Length != 0)
         {
-            actionReference.action.ApplyBindingOverride(bind);   
+            actionReference.action.ApplyBindingOverride(GetBindindIndex(), bind);
         }
         
         InitializeButtonText();
