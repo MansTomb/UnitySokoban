@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class Rebinding : MonoBehaviour
@@ -9,6 +10,12 @@ public class Rebinding : MonoBehaviour
     [SerializeField] private TMP_Text actionButtonText = null;
     [SerializeField] private TMP_Text actionHintText = null;
     [SerializeField] private string bindName = null;
+
+
+    public delegate void RebindOperation(string action, string button);
+
+    public event RebindOperation rebindWasCompleted;
+    // public UnityEvent<string, string> rebindWasCompleted;
     
     private InputActionRebindingExtensions.RebindingOperation _RebindingOperation;
 
@@ -59,6 +66,7 @@ public class Rebinding : MonoBehaviour
             actionReference.action.bindings[controlBindingIndex].effectivePath,
             InputControlPath.HumanReadableStringOptions.OmitDevice);
         
+        rebindWasCompleted?.Invoke(actionHintText.text, actionButtonText.text);
         _RebindingOperation.Dispose();
         _RebindingOperation = null;
     }

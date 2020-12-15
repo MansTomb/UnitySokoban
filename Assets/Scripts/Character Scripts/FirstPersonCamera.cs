@@ -16,9 +16,14 @@ public class FirstPersonCamera : MonoBehaviour
         _Sensivity = PlayerPrefs.GetFloat("First Person Sensivity", 5);
     }
 
-    void Update()
+    private void Update()
     {
         CameraControl();
+    }
+    
+    public void SetSensivity(float value)
+    {
+        _Sensivity = value;
     }
 
     private void OnDisable()

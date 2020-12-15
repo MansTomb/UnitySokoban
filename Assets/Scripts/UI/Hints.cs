@@ -16,6 +16,12 @@ public class Hints : MonoBehaviour
         hint.GetComponent<TMP_Text>().SetText($"Press {text} to push");
     }
 
+    public void ButtonWasRebinded(string actionRebinded, string actionButton)
+    {
+        if (actionRebinded == "Interact")
+            hint.GetComponent<TMP_Text>().SetText($"Press {actionButton} to push");
+    }
+    
     public void DeletePushHint()
     {
         Destroy(hint);

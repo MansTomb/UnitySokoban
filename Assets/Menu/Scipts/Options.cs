@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Options : MonoBehaviour
@@ -12,9 +13,12 @@ public class Options : MonoBehaviour
     [SerializeField] private Slider birdCameraSensivity;
     [SerializeField] private Slider fpsCameraSensivity;
 
+    public UnityEvent<float> fpsCameraSensivityChanged;
+    public UnityEvent<float> birdCameraSensivityChanged;
+
     private IEnumerator Start()
     {
-        yield return new WaitForSeconds(0.001f);
+        yield return new WaitForSeconds(0.00001f);
         var masterVolume = PlayerPrefs.GetFloat("Master Volume", master.value);
         var musicVolume = PlayerPrefs.GetFloat("Music Volume", music.value);
         var effectsVolume = PlayerPrefs.GetFloat("Effects Volume", effects.value);
@@ -55,10 +59,12 @@ public class Options : MonoBehaviour
     public void OnBirdCameraSensivity()
     {
         PlayerPrefs.SetFloat("Bird View Sensivity", birdCameraSensivity.value);
+        birdCameraSensivityChanged?.Invoke(birdCameraSensivity.value);
     }
 
     public void OnFpsCameraSensivity()
     {
         PlayerPrefs.SetFloat("First Person Sensivity", fpsCameraSensivity.value);
+        fpsCameraSensivityChanged?.Invoke(fpsCameraSensivity.value);
     }
 }

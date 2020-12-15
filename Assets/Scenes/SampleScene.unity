@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 144353269}
   - component: {fileID: 144353273}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: InGameCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1038,18 +1038,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4169603292953992160, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4169603292953992160, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4169603292953992160, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
+    - target: {fileID: 7538745060003052088, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
+      propertyPath: onButtonRebind.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 144353273}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ed2e685d52aa5844abe2243f73eb1b2, type: 3}
 --- !u!20 &2113679388 stripped
