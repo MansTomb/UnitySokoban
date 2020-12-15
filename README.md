@@ -1,18 +1,18 @@
 #UnitySokoban
 3D version of classic Sokoban game with some new features!
-
+    
 #Features
  - Can be runned at potato!
  - Two camera views!(First Person and from the top)
  - Fully customizable keybindings(Keyboard)!
-
+    
 #TODO
  - Gamepad Support(need to make image with controls, but gamepad already working).
  - Build at least 5 levels.
  - Level choose screen.
  - End game screen.
  - Add how much times you moved box at level(Like a Score but less == better).
- 
+    
 #Longterm TODO
  - Make game much more visually attractive:
    - Port to HDRP.
@@ -22,7 +22,7 @@
  - Add more complex game mechanics:
     - Levers which can move some walls at level.
     - e.t.c
-
+    
 #Screenshots
 <img src = "https://user-images.githubusercontent.com/34035820/102267057-07f70800-3f22-11eb-8425-14603842893d.png" width="1280">
 <img src = "https://user-images.githubusercontent.com/34035820/102267083-0f1e1600-3f22-11eb-8384-6012a22cee05.png" width="1280">
