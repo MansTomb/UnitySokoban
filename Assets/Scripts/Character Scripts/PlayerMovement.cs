@@ -27,8 +27,17 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(move * (movementSpeed * Time.deltaTime));
     }
 
+    private void OnDisable()
+    {
+        _IsMoving = false;
+        movementStateChanged?.Invoke(_IsMoving);
+    }
+
     private void OnMove(InputValue value)
     {
+        if (!isActiveAndEnabled)
+            return;
+
         _MovementInput = value.Get<Vector2>().normalized;
         if (_IsMoving != (_MovementInput != Vector3.zero))
         {

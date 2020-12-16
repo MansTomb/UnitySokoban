@@ -38,7 +38,7 @@ public class FirstPersonCamera : MonoBehaviour
 
     private void CameraControl()
     {
-        _MouseX += _MouseInput.y;
+        _MouseX -= _MouseInput.y;
         _MouseX = Mathf.Clamp(_MouseX, -90f, 90f);
         playerCamera.transform.localRotation = Quaternion.Euler(_MouseX, 0f, 0f);
         transform.Rotate(Vector3.up * _MouseInput.x);
