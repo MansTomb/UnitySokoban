@@ -16,7 +16,7 @@
 # Longterm TODO
  - Make game much more visually attractive:
    - Port to HDRP.
-   - Create Character with model and animation.
+   - Create Character with model and animation. :heavy_check_mark:
    - Some nice Effects when box is moving.
  - Procedural level generation.
  - Add more complex game mechanics:
