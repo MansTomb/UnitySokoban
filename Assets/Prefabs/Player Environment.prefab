@@ -573,11 +573,11 @@ GameObject:
   - component: {fileID: 1131352236026218049}
   - component: {fileID: 3600447481403890432}
   - component: {fileID: 9120703398200257814}
+  - component: {fileID: 552997094726916498}
+  - component: {fileID: 1815268000}
   - component: {fileID: 4169603292953992162}
   - component: {fileID: 4169603292953992163}
   - component: {fileID: 4169603292953992164}
-  - component: {fileID: 1815268000}
-  - component: {fileID: 552997094726916498}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -817,6 +817,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 3215489032881313141}
   playerMovement: {fileID: 1131352236026218049}
+--- !u!114 &552997094726916498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4169603292953992189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 983e65267e52c2b4892582d5bed8fce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovement: {fileID: 1131352236026218049}
+  playerAnimator: {fileID: 8114692158481146429}
+--- !u!114 &1815268000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4169603292953992189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e12f4ca479cddba43a78e4f29e10591c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menu: {fileID: 1850148507}
+  playerInput: {fileID: 4169603292953992190}
 --- !u!114 &4169603292953992162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -860,36 +888,6 @@ MonoBehaviour:
   firstPersonCameraScript: {fileID: 4169603292953992162}
   birdViewCameraScript: {fileID: 4169603292953992163}
   playerMovement: {fileID: 1131352236026218049}
---- !u!114 &1815268000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4169603292953992189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e12f4ca479cddba43a78e4f29e10591c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menu: {fileID: 1850148507}
-  playerInput: {fileID: 4169603292953992190}
-  firstPersonCamera: {fileID: 4169603292953992162}
-  birdViewCamera: {fileID: 4169603292953992163}
---- !u!114 &552997094726916498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4169603292953992189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 983e65267e52c2b4892582d5bed8fce6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerMovement: {fileID: 1131352236026218049}
-  playerAnimator: {fileID: 8114692158481146429}
 --- !u!1001 &289295741
 PrefabInstance:
   m_ObjectHideFlags: 0

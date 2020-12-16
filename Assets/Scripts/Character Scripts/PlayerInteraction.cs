@@ -4,7 +4,6 @@ using UnityEngine.Events;
 public class PlayerInteraction : MonoBehaviour
 {
     public UnityEvent interactionOccures;
-    public UnityEvent interactedBox;
     public Camera firstPersonCamera;
     
     void OnInteract()
@@ -15,9 +14,6 @@ public class PlayerInteraction : MonoBehaviour
         {
             GameObject obj = interactionInfo.collider.gameObject;
             obj.GetComponent<Interactable>().Interact(gameObject);
-            
-            if (obj.CompareTag("Box"))
-                interactedBox?.Invoke();
             interactionOccures?.Invoke();
         }
     }
