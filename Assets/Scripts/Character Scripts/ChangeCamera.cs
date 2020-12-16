@@ -11,7 +11,7 @@ public class ChangeCamera : MonoBehaviour
    [SerializeField] private BirdViewCamera birdViewCameraScript = null;
    [SerializeField] private PlayerMovement playerMovement = null;
 
-   private void Start()
+   private void Awake()
    {
       birdViewCameraScript.Disable();
       birdViewCameraScript.enabled = false;

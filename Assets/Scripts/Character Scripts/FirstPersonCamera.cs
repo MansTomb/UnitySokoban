@@ -11,9 +11,19 @@ public class FirstPersonCamera : MonoBehaviour
     private Vector2 _MouseInput = Vector2.zero;
     private float _MouseX;
 
-    private void Start()
+    private void Awake()
     {
         _Sensivity = PlayerPrefs.GetFloat("First Person Sensivity", 5);
+    }
+    
+    private void OnDisable()
+    {
+        playerCamera.enabled = false;
+    }
+
+    private void OnEnable()
+    {
+        playerCamera.enabled = true;
     }
 
     private void Update()
@@ -24,16 +34,6 @@ public class FirstPersonCamera : MonoBehaviour
     public void SetSensivity(float value)
     {
         _Sensivity = value;
-    }
-
-    private void OnDisable()
-    {
-        playerCamera.enabled = false;
-    }
-
-    private void OnEnable()
-    {
-        playerCamera.enabled = true;
     }
 
     private void CameraControl()

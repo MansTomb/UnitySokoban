@@ -18,7 +18,7 @@ public class Options : MonoBehaviour
 
     private IEnumerator Start()
     {
-        yield return new WaitForSeconds(0.00001f);
+        yield return new WaitForSeconds(0.0000001f);
         var masterVolume = PlayerPrefs.GetFloat("Master Volume", master.value);
         var musicVolume = PlayerPrefs.GetFloat("Music Volume", music.value);
         var effectsVolume = PlayerPrefs.GetFloat("Effects Volume", effects.value);

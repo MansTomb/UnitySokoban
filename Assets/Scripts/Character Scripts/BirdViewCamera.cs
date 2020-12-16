@@ -8,7 +8,7 @@ public class BirdViewCamera : MonoBehaviour
     
     private float _Sensivity = 1;
 
-    private void Start()
+    private void Awake()
     {
         _Sensivity = PlayerPrefs.GetFloat("Bird View Sensivity", 0.04f);
     }

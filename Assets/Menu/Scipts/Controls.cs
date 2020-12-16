@@ -11,7 +11,7 @@ public class Controls : MonoBehaviour
     
     private IEnumerator Start()
     {
-        yield return new WaitForSeconds(0.00001f);
+        yield return new WaitForSeconds(0.0000001f);
 
         foreach (var rebindButton in rebindings)
         {
@@ -19,6 +19,4 @@ public class Controls : MonoBehaviour
         }
         gameObject.SetActive(false);
     }
-    
-    
 }
