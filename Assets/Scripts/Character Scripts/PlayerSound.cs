@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerSound : MonoBehaviour
 {
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private AudioSource audioSource = null;
+    [SerializeField] private PlayerMovement playerMovement = null;
 
     private Coroutine _Footsteps;
     private WaitWhile _FootstepsCondition;

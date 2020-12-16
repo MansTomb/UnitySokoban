@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BoxSoundEffects : MonoBehaviour
 {
-    [SerializeField] private BoxMovement boxMovement;
-    [SerializeField] private AudioSource _AudioSource;
+    [SerializeField] private BoxMovement boxMovement = null;
+    [SerializeField] private AudioSource audioSource = null;
     
     private void OnEnable()
     {
@@ -20,6 +20,6 @@ public class BoxSoundEffects : MonoBehaviour
     private void ChangeState(bool state)
     {
         if (state)
-            _AudioSource.Play();
+            audioSource.Play();
     }
 }

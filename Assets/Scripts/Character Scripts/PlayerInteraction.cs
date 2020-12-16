@@ -3,6 +3,7 @@ using UnityEngine.Events;
 
 public class PlayerInteraction : MonoBehaviour
 {
+    public UnityEvent interactionOccures;
     public UnityEvent interactedBox;
     public Camera firstPersonCamera;
     
@@ -17,6 +18,7 @@ public class PlayerInteraction : MonoBehaviour
             
             if (obj.CompareTag("Box"))
                 interactedBox?.Invoke();
+            interactionOccures?.Invoke();
         }
     }
 }

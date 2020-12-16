@@ -9,8 +9,8 @@ public class BoxMovement : MonoBehaviour
 
     public event MovementStateChanged movementStateChanged;
     
-    [SerializeField] private Rigidbody _Rigidbody;
-    [SerializeField] private Interactable _Interactable;
+    [SerializeField] private Rigidbody _rigidody = null;
+    [SerializeField] private Interactable interactable = null;
     
     private Vector3 _MoveDirection = Vector3.zero;
     private Vector3 _Destination;
@@ -19,19 +19,19 @@ public class BoxMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        _Interactable.OnInteraction += Push;
+        interactable.OnInteraction += Push;
     }
 
     private void OnDisable()
     {
-        _Interactable.OnInteraction -= Push;
+        interactable.OnInteraction -= Push;
     }
 
     private void LateUpdate()
     {
         if (_IsMoving)
         {
-            _Rigidbody.MovePosition(transform.position + _MoveDirection * Time.fixedDeltaTime);
+            _rigidody.MovePosition(transform.position + _MoveDirection * Time.fixedDeltaTime);
             if (transform.position == _Destination)
             {
                 RoundPosition();

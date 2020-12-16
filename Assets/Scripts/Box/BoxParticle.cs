@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class BoxParticle : MonoBehaviour
 {
-    [SerializeField] private BoxMovement boxMovement;
-    [SerializeField] private ParticleSystem _ParticleSystem;
+    [SerializeField] private BoxMovement boxMovement = null;
+    [SerializeField] private ParticleSystem particleSys = null;
     
     private void OnEnable()
     {
         boxMovement.movementStateChanged += ChangeState;
-        _ParticleSystem.Stop();
+        particleSys.Stop();
     }
 
     private void OnDisable()
@@ -19,8 +19,8 @@ public class BoxParticle : MonoBehaviour
     private void ChangeState(bool state)
     {
         if (state)
-            _ParticleSystem.Play();
+            particleSys.Play();
         else
-            _ParticleSystem.Stop();
+            particleSys.Stop();
     }
 }

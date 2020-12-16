@@ -569,6 +569,7 @@ GameObject:
   - component: {fileID: 4169603292953992190}
   - component: {fileID: 3215489032881313141}
   - component: {fileID: 3239293716600796731}
+  - component: {fileID: 5082509533368651103}
   - component: {fileID: 1131352236026218049}
   - component: {fileID: 3600447481403890432}
   - component: {fileID: 9120703398200257814}
@@ -744,6 +745,19 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5082509533368651103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4169603292953992189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67328dae4e4f34a4d81ff60d66e35543, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  input: {fileID: 4169603292953992190}
 --- !u!114 &1131352236026218049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -770,6 +784,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddaecb3ff7b5b8b43a3b54fc30a35123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionOccures:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: EndGame, Assembly-CSharp
+        m_MethodName: OnInteraction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   interactedBox:
     m_PersistentCalls:
       m_Calls: []

@@ -1,7 +1,11 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class WinningConditionChecker : MonoBehaviour
 {
+    [SerializeField] private GameObject endGame = null;
+    [SerializeField] private PlayerInput input = null;
+    
     private GameObject[] _AllFinish;
     private int _AmountOfFinishesThatHasBox = 0;
     private void Awake()
@@ -30,7 +34,8 @@ public class WinningConditionChecker : MonoBehaviour
     {
         if (_AmountOfFinishesThatHasBox == _AllFinish.Length)
         {
-            Debug.Log("End game!");
+            input.SwitchCurrentActionMap("Empty");
+            endGame.SetActive(true);
         }
     }
 }

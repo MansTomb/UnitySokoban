@@ -18,7 +18,7 @@ public class Level : MonoBehaviour
     {
         levelName.SetText(scene.name);
         
-        var score = PlayerPrefs.GetFloat(scene.name, 0);
+        var score = PlayerPrefs.GetInt(scene.name, 0);
         levelScore.SetText($"Interaction to win: {score}");
 
         var completed = PlayerPrefs.GetInt(scene.name + "Completed", 0);

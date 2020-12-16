@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class BirdViewCamera : MonoBehaviour
 {
-    [SerializeField] private Camera birdCamera;
+    [SerializeField] private Camera birdCamera = null;
     
     private float _Sensivity = 1;
 

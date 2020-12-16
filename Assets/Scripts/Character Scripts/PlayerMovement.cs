@@ -5,15 +5,14 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
-    
     public delegate void MovementStateChanged(bool state);
 
     public event MovementStateChanged movementStateChanged;
     
-    [SerializeField] private CharacterController controller;
+    [SerializeField] private CharacterController controller = null;
     [SerializeField] private float movementSpeed = 3;
 
-    private Vector3 _MovementInput;
+    private Vector3 _MovementInput = Vector3.zero;
 
     private bool _IsMoving = false;
     public bool isMoving => _IsMoving;

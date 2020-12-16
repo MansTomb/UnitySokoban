@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ChangeCamera : MonoBehaviour
 {
-   [SerializeField] private GameObject firstPersonCamera;
-   [SerializeField] private GameObject birdViewCamera;
+   [SerializeField] private GameObject firstPersonCamera = null;
+   [SerializeField] private GameObject birdViewCamera = null;
    
-   [SerializeField] private FirstPersonCamera firstPersonCameraScript;
-   [SerializeField] private BirdViewCamera birdViewCameraScript;
-   [SerializeField] private PlayerMovement playerMovement;
+   [SerializeField] private FirstPersonCamera firstPersonCameraScript = null;
+   [SerializeField] private BirdViewCamera birdViewCameraScript = null;
+   [SerializeField] private PlayerMovement playerMovement = null;
 
    private void Start()
    {
