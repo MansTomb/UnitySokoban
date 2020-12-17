@@ -9,19 +9,16 @@ public class Box : MonoBehaviour
     public UnityEvent boxZoneExit;
     
     [SerializeField] private Renderer _renderer = null;
-    [SerializeField] private Outline outline = null;
 
     void Start()
     {
-        _renderer.material.color = color;
-        outline.enabled = false;
+        _renderer.material.SetColor("_BaseColor", color);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player")) 
         {
-            outline.enabled = true;
             boxZoneEntered?.Invoke();
         }
     }
@@ -30,7 +27,6 @@ public class Box : MonoBehaviour
     {
         if (other.CompareTag("Player")) 
         {
-            outline.enabled = false;
             boxZoneExit?.Invoke();
         }
     }

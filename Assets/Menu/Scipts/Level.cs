@@ -1,32 +1,32 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using System.IO;
 using TMPro;
-using UnityEditor;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Level : MonoBehaviour
 {
-    [SerializeField] private SceneAsset scene = null;
+    [SerializeField] public string scenePath = null;
     [SerializeField] private TMP_Text levelName = null;
     [SerializeField] private TMP_Text levelScore = null;
     [SerializeField] private TMP_Text levelCompleted = null;
 
+    private string sceneName = null;
+    
     private void Awake()
     {
-        levelName.SetText(scene.name);
+        sceneName = Path.GetFileNameWithoutExtension(scenePath);
         
-        var score = PlayerPrefs.GetInt(scene.name, 0);
+        levelName.SetText(sceneName);
+        
+        var score = PlayerPrefs.GetInt(sceneName, 1000);
         levelScore.SetText($"Interaction to win: {score}");
 
-        var completed = PlayerPrefs.GetInt(scene.name + "Completed", 0);
+        var completed = PlayerPrefs.GetInt(sceneName + "Completed", 0);
         levelCompleted.SetText(completed == 1 ? "Completed" : "Not Completed");
     }
 
     public void OnScenePlayed()
     {
-        SceneManager.LoadScene(scene.name);
+        SceneManager.LoadScene(sceneName);
     }
 }

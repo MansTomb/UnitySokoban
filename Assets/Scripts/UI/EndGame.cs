@@ -1,8 +1,6 @@
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Scene = UnityEditor.SearchService.Scene;
 
 public class EndGame : MonoBehaviour
 {

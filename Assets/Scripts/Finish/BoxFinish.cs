@@ -15,14 +15,14 @@ public class BoxFinish : MonoBehaviour
 
     private void Awake()
     {
-        gameObject.GetComponent<Renderer>().material.color = _NeedColorToFinish;
+        gameObject.GetComponent<Renderer>().material.SetColor("_BaseColor", _NeedColorToFinish);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.isTrigger || !other.CompareTag("Box"))
             return;
-        if (other.gameObject.GetComponent<Renderer>().material.color == _NeedColorToFinish)
+        if (other.gameObject.GetComponent<Renderer>().material.GetColor("_BaseColor") == _NeedColorToFinish)
         {
             boxEnter?.Invoke();
         }
@@ -32,7 +32,7 @@ public class BoxFinish : MonoBehaviour
     {
         if (other.isTrigger || !other.CompareTag("Box"))
             return;
-        if (other.gameObject.GetComponent<Renderer>().material.color == _NeedColorToFinish)
+        if (other.gameObject.GetComponent<Renderer>().material.GetColor("_BaseColor") == _NeedColorToFinish)
         {
             boxExit?.Invoke();
         }
