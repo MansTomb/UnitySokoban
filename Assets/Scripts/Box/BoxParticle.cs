@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class BoxParticle : MonoBehaviour
 {
     [SerializeField] private BoxMovement boxMovement = null;
-    [SerializeField] private ParticleSystem particleSys = null;
+    [SerializeField] private VisualEffect particleSys = null;
     
     private void OnEnable()
     {
