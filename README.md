@@ -7,7 +7,6 @@
  - Fully customizable keybindings(Keyboard)!
     
 # TODO
- - Because of HDRP Outline dont work, so i need to change it to something new
  - Gamepad Support(need to make image with controls, but gamepad already working).
  - Build at least 5 levels.
  - Level choose screen. :heavy_check_mark:
@@ -18,7 +17,7 @@
  - Make game much more visually attractive:
    - Port to HDRP. :heavy_check_mark:
    - Create Character with model and animation. :heavy_check_mark:
-   - Some nice Effects when box is moving.
+   - Some nice Effects when box is moving. :heavy_check_mark:
  - Procedural level generation.
  - Add more complex game mechanics:
     - Levers which can move some walls at level.
