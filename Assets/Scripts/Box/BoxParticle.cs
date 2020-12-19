@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -5,7 +6,12 @@ public class BoxParticle : MonoBehaviour
 {
     [SerializeField] private BoxMovement boxMovement = null;
     [SerializeField] private VisualEffect particleSys = null;
-    
+
+    private void Awake()
+    {
+        particleSys.Stop();
+    }
+
     private void OnEnable()
     {
         boxMovement.movementStateChanged += ChangeState;
