@@ -23,14 +23,14 @@
  - Add more complex game mechanics:
     - Levers which can move some walls at level.
     - e.t.c
-    
+
 # Screenshots
 <img src = "https://user-images.githubusercontent.com/34035820/102267057-07f70800-3f22-11eb-8425-14603842893d.png" width="1280">
 <img src = "https://user-images.githubusercontent.com/34035820/102267083-0f1e1600-3f22-11eb-8384-6012a22cee05.png" width="1280">
 <img src = "https://user-images.githubusercontent.com/34035820/102267094-11807000-3f22-11eb-9b43-e95801cc7f30.png" width="1280">
-<img src = "https://user-images.githubusercontent.com/34035820/102267175-2bba4e00-3f22-11eb-8065-56cdd5a6cebe.png" width="1280">
-<img src = "https://user-images.githubusercontent.com/34035820/102267184-2f4dd500-3f22-11eb-8b79-0925cec12303.png" width="1280">
-<img src = "https://user-images.githubusercontent.com/34035820/102267191-31b02f00-3f22-11eb-85c1-5ed713d72927.png" width="1280">
+<img src = "https://user-images.githubusercontent.com/34035820/102688989-834b0900-4203-11eb-9b9f-eb0984c9abec.png" width="1280">
+<img src = "https://user-images.githubusercontent.com/34035820/102688992-880fbd00-4203-11eb-8bc6-8329fa5664c7.png" width="1280">
+<img src = "https://user-images.githubusercontent.com/34035820/102688993-8cd47100-4203-11eb-8c05-acecd81cbb68.png" width="1280">
 <img src = "https://user-images.githubusercontent.com/34035820/102688925-f6a04b00-4202-11eb-8256-b6f3fef73ce7.png" width="1280">
 <img src = "https://user-images.githubusercontent.com/34035820/102688932-0881ee00-4203-11eb-957c-dded01e2659a.png" width="1280">
 <img src = "https://user-images.githubusercontent.com/34035820/102688952-294a4380-4203-11eb-949c-bb75a39b964a.png" width="1280">
