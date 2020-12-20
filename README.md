@@ -8,7 +8,7 @@
     
 # TODO
  - Gamepad Support(need to make image with controls, but gamepad already working).
- - Build at least 5 levels.
+ - Build some levels.(2 Done maybe gonna build more but this is not the goal) :heavy_check_mark:
  - Level choose screen. :heavy_check_mark:
  - End game screen. :heavy_check_mark:
  - Add how much times you moved box at level(Like a Score but less == better). :heavy_check_mark:
