@@ -17,7 +17,7 @@ public class Level : MonoBehaviour
         sceneName = Path.GetFileNameWithoutExtension(scenePath);
         
         levelName.SetText(sceneName);
-        
+        Debug.Log($"{sceneName}");
         var score = PlayerPrefs.GetInt(sceneName, 1000);
         levelScore.SetText($"Interaction to win: {score}");
 

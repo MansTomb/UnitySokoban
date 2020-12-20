@@ -11,7 +11,7 @@ public class EndGame : MonoBehaviour
     private void OnEnable()
     {
         scoreText.SetText($"Interaction to end: {_Score}");
-        var prevScore = PlayerPrefs.GetInt(SceneManager.GetActiveScene().name, 0);
+        var prevScore = PlayerPrefs.GetInt(SceneManager.GetActiveScene().name, 1000);
         
         if (_Score < prevScore)
             PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, _Score);
@@ -28,7 +28,7 @@ public class EndGame : MonoBehaviour
     {
         var scene = SceneManager.GetActiveScene().buildIndex + 1;
         
-        if (SceneManager.sceneCount >= scene)
+        if (SceneManager.sceneCountInBuildSettings > scene)
             SceneManager.LoadScene(scene);
         else
             OnMainMenu();

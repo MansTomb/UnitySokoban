@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 public class Options : MonoBehaviour
 {
-    [SerializeField] private AudioMixer mixer;
-    [SerializeField] private Slider master;
-    [SerializeField] private Slider music;
-    [SerializeField] private Slider effects;
-    [SerializeField] private Slider birdCameraSensivity;
-    [SerializeField] private Slider fpsCameraSensivity;
+    [SerializeField] private AudioMixer mixer = null;
+    [SerializeField] private Slider master = null;
+    [SerializeField] private Slider music = null;
+    [SerializeField] private Slider effects = null;
+    [SerializeField] private Slider birdCameraSensivity = null;
+    [SerializeField] private Slider fpsCameraSensivity = null;
 
     public UnityEvent<float> fpsCameraSensivityChanged;
     public UnityEvent<float> birdCameraSensivityChanged;

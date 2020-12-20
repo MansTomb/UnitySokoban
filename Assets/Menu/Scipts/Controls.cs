@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class Controls : MonoBehaviour
 {
-    [SerializeField] private Rebinding[] rebindings;
+    [SerializeField] private Rebinding[] rebindings = null;
 
     public UnityEvent<string, string> onButtonRebind;
     

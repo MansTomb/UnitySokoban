@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class Hints : MonoBehaviour
 {
     
-    [SerializeField] private GameObject hint;
+    [SerializeField] private GameObject hint = null;
 
     private void Awake()
     {

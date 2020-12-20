@@ -6,8 +6,8 @@ using UnityEngine;
 [ExecuteAlways]
 public class GridPresenter : MonoBehaviour
 {
-    [SerializeField] private int width;
-    [SerializeField] private int height;
+    [SerializeField] private int width = 5;
+    [SerializeField] private int height = 5;
     
     private Grid _Grid;
 

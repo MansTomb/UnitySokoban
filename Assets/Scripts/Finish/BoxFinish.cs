@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class BoxFinish : MonoBehaviour
 {
@@ -7,19 +8,19 @@ public class BoxFinish : MonoBehaviour
     
     public event BoxEnteredFinish boxEnter;
     public event BoxExitFinish boxExit;
-    
-    [SerializeField] private Color _NeedColorToFinish;
+
+    [FormerlySerializedAs("_NeedColorToFinish")] [SerializeField] private Color needColorToFinish = Color.black;
 
     private void Awake()
     {
-        gameObject.GetComponent<Renderer>().material.SetColor("_BaseColor", _NeedColorToFinish);
+        gameObject.GetComponent<Renderer>().material.SetColor("_BaseColor", needColorToFinish);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.isTrigger || !other.CompareTag("Box"))
             return;
-        if (other.gameObject.GetComponent<Renderer>().material.GetColor("_BaseColor") == _NeedColorToFinish)
+        if (other.gameObject.GetComponent<Renderer>().material.GetColor("_BaseColor") == needColorToFinish)
         {
             other.gameObject.GetComponent<BoxParticle>().OnFinishEnter();
             boxEnter?.Invoke();
@@ -30,7 +31,7 @@ public class BoxFinish : MonoBehaviour
     {
         if (other.isTrigger || !other.CompareTag("Box"))
             return;
-        if (other.gameObject.GetComponent<Renderer>().material.GetColor("_BaseColor") == _NeedColorToFinish)
+        if (other.gameObject.GetComponent<Renderer>().material.GetColor("_BaseColor") == needColorToFinish)
         {
             other.gameObject.GetComponent<BoxParticle>().OnFinishExit();
             boxExit?.Invoke();
