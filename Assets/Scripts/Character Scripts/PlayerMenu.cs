@@ -9,12 +9,14 @@ public class PlayerMenu : MonoBehaviour
     private void OnMenu()
     {
         playerInput.SwitchCurrentActionMap("Menu");
+        Cursor.lockState = CursorLockMode.Confined;
         menu.SetActive(true);
     }
 
     private void OnExitMenu()
     {
         playerInput.SwitchCurrentActionMap("PlayerControl");
+        Cursor.lockState = CursorLockMode.Locked;
         menu.SetActive(false);
     }
 }

@@ -10,5 +10,6 @@ public class Player : MonoBehaviour
     void Awake()
     {
         input.SwitchCurrentActionMap("PlayerControl");
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

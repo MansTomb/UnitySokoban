@@ -17,6 +17,7 @@ public class EndGame : MonoBehaviour
             PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, _Score);
         PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "Completed", 1);
         PlayerPrefs.Save();
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     public void OnInteraction()
