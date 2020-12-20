@@ -7,6 +7,7 @@ public class BirdViewCamera : MonoBehaviour
     [SerializeField] private Camera birdCamera = null;
     
     private float _Sensivity = 1;
+    private Vector2 _Direction = Vector2.zero;
 
     private void Awake()
     {
@@ -16,6 +17,7 @@ public class BirdViewCamera : MonoBehaviour
     void Update()
     {
         CameraControl();
+        birdCamera.transform.position += new Vector3(_Direction.x, 0, _Direction.y);
     }
     
     public void SetSensivity(float value)
@@ -41,6 +43,12 @@ public class BirdViewCamera : MonoBehaviour
         birdCamera.enabled = false;
     }
 
+    private void OnBirdCamera(InputValue value)
+    {
+        _Direction = value.Get<Vector2>() * (_Sensivity * 100) * Time.deltaTime;
+        Debug.Log($"{value.Get<Vector2>()}");
+    }
+    
     private void CameraControl()
     {
         Vector3 newPos = birdCamera.transform.position;

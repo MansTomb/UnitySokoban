@@ -1092,11 +1092,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c7f699e0e763f64ab6d557e1a07fe9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstPersonCamera: {fileID: 4169603292487632193}
-  birdViewCamera: {fileID: 4169603290982873206}
   firstPersonCameraScript: {fileID: 4169603292953992162}
   birdViewCameraScript: {fileID: 4169603292953992163}
   playerMovement: {fileID: 1131352236026218049}
+  playerInput: {fileID: 4169603292953992190}
 --- !u!1001 &289295741
 PrefabInstance:
   m_ObjectHideFlags: 0
