@@ -14,12 +14,12 @@ public class WinningConditionChecker : MonoBehaviour
         foreach (var finish in _AllFinish)
         {
             var boxFinish = finish.GetComponent<BoxFinish>();
-            boxFinish.boxEnter += AddBoxWhichHasHisBox;
+            boxFinish.boxEnter += AddFinishWhichHasHisBox;
             boxFinish.boxExit += DeleteBoxWhichBoxGoesFromIt;
         }
     }
 
-    private void AddBoxWhichHasHisBox()
+    private void AddFinishWhichHasHisBox()
     {
         _AmountOfFinishesThatHasBox++;
         CheckWinningConditions();

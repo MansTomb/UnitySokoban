@@ -1,21 +1,29 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.VFX;
 
 public class BoxParticle : MonoBehaviour
 {
     [SerializeField] private BoxMovement boxMovement = null;
-    [SerializeField] private VisualEffect particleSys = null;
 
+    [SerializeField] private VisualEffect movementVisualEffect = null;
+    [SerializeField] private VisualEffect onFinishVisualEffect = null;
+
+    public void OnFinishEnter() => onFinishVisualEffect.Play();
+    public void OnFinishExit() => onFinishVisualEffect.Stop();
+    
     private void Awake()
     {
-        particleSys.Stop();
+        movementVisualEffect.Stop();
+        onFinishVisualEffect.Stop();
     }
 
     private void OnEnable()
     {
         boxMovement.movementStateChanged += ChangeState;
-        particleSys.Stop();
+        movementVisualEffect.Stop();
+        onFinishVisualEffect.Stop();
     }
 
     private void OnDisable()
@@ -26,8 +34,8 @@ public class BoxParticle : MonoBehaviour
     private void ChangeState(bool state)
     {
         if (state)
-            particleSys.Play();
+            movementVisualEffect.Play();
         else
-            particleSys.Stop();
+            movementVisualEffect.Stop();
     }
 }

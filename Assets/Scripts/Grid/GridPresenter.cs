@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,11 +6,14 @@ using UnityEngine;
 [ExecuteAlways]
 public class GridPresenter : MonoBehaviour
 {
+    [SerializeField] private int width;
+    [SerializeField] private int height;
+    
     private Grid _Grid;
 
-    void Start()
+    void OnEnable()
     {
-        _Grid = new Grid(5, 5, 4);
+        _Grid = new Grid(width, height, 4);
 
         for (int i = 0; i < _Grid.grid.GetLength(0); i++)
         {
@@ -21,5 +25,9 @@ public class GridPresenter : MonoBehaviour
             Debug.DrawLine(_Grid.GetWorldPosition(0, _Grid.height), _Grid.GetWorldPosition(_Grid.width, _Grid.height), Color.black, 100f);
             Debug.DrawLine(_Grid.GetWorldPosition(_Grid.width, 0), _Grid.GetWorldPosition(_Grid.width, _Grid.height), Color.black, 100f);
         }
+    }
+
+    private void OnDisable()
+    {
     }
 }

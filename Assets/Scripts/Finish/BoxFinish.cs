@@ -1,7 +1,4 @@
-using System;
-using System.Linq.Expressions;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class BoxFinish : MonoBehaviour
 {
@@ -24,6 +21,7 @@ public class BoxFinish : MonoBehaviour
             return;
         if (other.gameObject.GetComponent<Renderer>().material.GetColor("_BaseColor") == _NeedColorToFinish)
         {
+            other.gameObject.GetComponent<BoxParticle>().OnFinishEnter();
             boxEnter?.Invoke();
         }
     }
@@ -34,6 +32,7 @@ public class BoxFinish : MonoBehaviour
             return;
         if (other.gameObject.GetComponent<Renderer>().material.GetColor("_BaseColor") == _NeedColorToFinish)
         {
+            other.gameObject.GetComponent<BoxParticle>().OnFinishExit();
             boxExit?.Invoke();
         }
     }
