@@ -7,7 +7,6 @@
  - Fully customizable keybindings(Keyboard)!
     
 # TODO
- - Gamepad Support(need to make image with controls, but gamepad already working).
  - Build some levels.(2 Done maybe gonna build more but this is not the goal) :heavy_check_mark:
  - Level choose screen. :heavy_check_mark:
  - End game screen. :heavy_check_mark:
